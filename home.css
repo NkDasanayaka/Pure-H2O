@@ -1,0 +1,245 @@
+* {
+	height: auto;
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+	background: linear-gradient(109.5deg, rgb(13, 11, 136) 9.4%, rgb(86, 255, 248) 78.4%);
+	;
+	height: 120px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.header div {
+	margin: 0;
+
+	width: 100%;
+}
+
+
+	
+
+
+
+
+.header div div.navigation {
+
+	font-family: 'CarterOneRegular';
+	float: right;
+	height: auto;
+	line-height: 50px;
+	margin-top: 30px;
+	text-transform: uppercase;
+	width: 100%;
+}
+
+.header div div.navigation div {
+
+	padding-left: 4px;
+	height: 70px;
+	width: auto;
+}
+
+.header div div.navigation div ul {
+
+	clear: both;
+	float: right;
+	height: 70px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	
+
+}
+
+.header div div.div ul li:first-child {
+	background: none;
+}
+
+.header div div.navigation div ul li {
+
+	float: left;
+	padding: 0 30px;
+}
+
+.header div div.navigation div ul li a {
+	color: #08b6eb;
+	text-decoration: none;
+	text-shadow: 1px 1px 0 #007fba;
+}
+
+.header div div.navigation div ul li.current a,
+.header div div.navigation div ul li a:hover {
+	color: #0063c1;
+	text-shadow: 1px 1px 0 #2b038f;
+}
+
+.content {
+	width: 100%;
+	height: 900px;
+	background-color: #08b6eb;
+	background-image: url("Images/sidhes.jpg");
+	background-size: cover;
+
+
+}
+
+.content div p {
+	font-size: 60px;
+	padding-top: 100px;
+	margin-left: 100px;
+	font-weight: 800;
+	width: 50%;
+}
+
+.content div div {
+	width: 50%;
+	margin-top: 200px;
+}
+
+.content div img {
+	height: 500px;
+	margin-right: 100px;
+	float: right;
+	margin-top: -200px;
+
+	border-radius: 50%;
+}
+
+.disc {
+	border: 1px solid;
+	background-image: url(Images/waves.jpg);
+	width: 100%;
+	height: 900px;
+	background-size: cover;
+	display: flex;
+}
+
+
+
+.disc div.info {
+	height: 800px;
+	border-radius: 16px;
+	width: 30%;
+	background: rgb(239, 255, 255);
+	background: radial-gradient(circle, rgba(239, 255, 255, 1) 0%, rgba(70, 252, 251, 1) 100%);
+	margin-top: 200px;
+	margin-left: 40px;
+	margin: 40px;
+}
+
+
+
+.disc div.info div img {
+	height: 320px;
+	width: 100%;
+	align-items: center;
+	object-fit: cover;
+	border-radius: 16px;
+
+}
+
+.disc div.info div.explain {
+	width: 100%;
+	height: 250px;
+
+}
+
+.disc div.info div.explain h3 {
+	font-size: 50px;
+	display: flex;
+	justify-content: center;
+
+}
+
+.disc div.info div.explain p {
+	font-style: italic;
+	font-size: large;
+	font-weight: 700;
+	font-size: 20px;
+	margin: 10px;
+	line-height: 30px;
+
+}
+
+footer {
+	background: rgb(239, 255, 255);
+	background: radial-gradient(circle, rgba(239, 255, 255, 1) 0%, rgba(70, 82, 252, 1) 100%);
+	padding-top: 50px;
+
+}
+.container{
+	width: 100%;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+}
+.footer{
+	width: 33%;
+	margin: 30px;
+}
+.topic{
+	font-size: 40px;
+	margin-bottom: 15px;
+	text-align: center;
+	vertical-align: middle;
+}
+.footer-content{
+	width: 33%;
+}
+.footer-content h3 {
+	text-align: center;
+	font-size: 40px;
+}
+.footer-content p {
+	text-align: center;
+	margin: auto;
+	padding: 7px;
+	font-size: 20px;
+}
+.footer-content ul {
+	text-align: center;
+	text-decoration: none;
+}
+.list{
+	padding: 0;
+}
+.list li {
+	width: auto;
+	font-size: 20px;
+	text-align: center;
+	list-style-type: none;
+	padding: 10px;
+	position: relative;
+}
+.list li::before{
+	content:'' ;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	left: 50%;
+	top: 100%;
+	width: 0;
+	height: 2px;
+	background: #08b6eb;
+	transition-duration: .4s;
+}
+.list li:hover::before{
+	width: 70px;
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	color: #3dc1ff;
+}
+
+
+.bottom-bar{
+	margin: 0;
+	font-size: 15px;
+	padding: 10px;
+	display: flex;
+}
+
