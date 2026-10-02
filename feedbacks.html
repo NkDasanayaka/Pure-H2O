@@ -3,11 +3,186 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <link rel="stylesheet" href="feedbacks.css">
-    <title>FEEDBACKS</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Section</title>
 
+    <!-- Modern Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .feedback-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .feedback-card {
+            width: 100%;
+            max-width: 600px;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 35px 30px;
+            box-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.25);
+            border: 1px solid rgba(224, 242, 254, 0.8);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .icon-circle {
+            width: 56px;
+            height: 56px;
+            background: #e0f2fe;
+            color: #0284c7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+        }
+
+        .header h2 {
+            color: #0c4a6e;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #64748b;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        .textarea-container textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            font-family: inherit;
+            font-size: 15px;
+            color: #334155;
+            background-color: #f8fafc;
+            resize: vertical;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        .textarea-container textarea:focus {
+            border-color: #0284c7;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+        }
+
+        .submit-btn {
+            margin-top: 15px;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(2, 132, 199, 0.35);
+            transition: all 0.2s ease;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(2, 132, 199, 0.45);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .comments-list {
+            margin-top: 35px;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 25px;
+        }
+
+        .list-title {
+            font-size: 16px;
+            color: #475569;
+            margin-bottom: 16px;
+        }
+
+        .comment-item {
+            display: flex;
+            gap: 14px;
+            background: #f8fafc;
+            padding: 14px 16px;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            border-left: 4px solid #0284c7;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: #bae6fd;
+            color: #0369a1;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .comment-content {
+            flex-grow: 1;
+        }
+
+        .comment-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+        .user-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .comment-date {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .comment-text {
+            font-size: 14px;
+            color: #334155;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,57 +202,54 @@
             </div>
         </div>
     </div>
-    <script src="style.js"></script>
-    <div id="app" class="feedback-container">
-        <h1>Comment Section</h1>
-        <div class="feedback-form">
-            <textarea v-model="new_feedback" placeholder="Enter your comment"></textarea>
-            <button @click="add_feedback">Add Feedback</button>
-        </div>
-        <div class="feedbacks">
-            <div v-for="(feedback, index) in feedbacks" :key="index" class="feedback">
-                <p>{{ feedback }}</p>
-                <button @click="delete_feedback(index)">Delete</button>
+    <div class="feedback-wrapper">
+        <div class="feedback-card">
+            <div class="header">
+                <div class="icon-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </div>
+                <h2>Share Your Thoughts</h2>
+                <p>ඔබගේ අදහස් හා ප්‍රතිචාර මෙතැනින් එකතු කරන්න</p>
+            </div>
+    
+            <!-- Feedback Form -->
+            <form id="commentForm" class="comment-form">
+                <div class="textarea-container">
+                    <textarea id="commentInput" rows="4" placeholder="ඔබේ අදහස මෙහි ලියන්න..." required></textarea>
+                </div>
+    
+                <button type="submit" id="submitBtn" class="submit-btn" disabled>
+                    <span>Add Feedback</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </form>
+    
+            <!-- Comments List Section -->
+            <div class="comments-list">
+                <h3 id="commentsCount" class="list-title">Recent Comments (1)</h3>
+                <div id="commentsContainer">
+                    <div class="comment-item">
+                        <div class="avatar">U</div>
+                        <div class="comment-content">
+                            <div class="comment-top">
+                                <span class="user-name">Guest User</span>
+                                <span class="comment-date">Just now</span>
+                            </div>
+                            <p class="comment-text">Great website! Loved the design and overall experience.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-<script src="style.js"></script>
-<footer> 
-    <div class="container">
-        <div class="footer-content">
-            <h3>Contact Us</h3>
-            <p>Email: nisalkavindikadasnayaka@gmail.com</p>
-            <p>phone: 0771456870</p>
-            
-        </div>
-        <div class="footer-content">
-            <h3 class="topic">Quick Links</h3>
-            <ul class="list">
-                <li><a href="about.html">ABOUT US</a></li>
-                <li><a href="contacts.html">CONTACT US</a></li>
-                <li><a href="feedbacks.html">FEEDBACKS</a></li>
-                <li><a href="gallery.html">GALLERY</a></li>
-            </ul>
+    
 
-        </div>
-        <div class="footer-content">
-            <h3 class="topic">Follow Us</h3>
-            <ul class="list">
-                <li><a href="">FACEBOOK</a></li>
-                <li><a href="">TWITTER</a></li>
-                <li><a href="">INSTAGRAM</a></li>
-                <li><a href="">TIK TOK</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="bottom-bar">
-        <p>&copy; 2024 PURE H2O . All Rights Reserved.</p>
-    </div>
-
-
-
-
-</footer>
-
-
-</body>
+    <script src="style.js"></script>
+    </body>
